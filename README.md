@@ -22,8 +22,8 @@ Code:
 from logpy import Logger
 from logpy.log import Levels
 
-Logger.log("Hello World!")
-Logger.log("Oh no, something went wrong!", Levels.error)
+Logger.slog("Hello World!")
+Logger.slog("Oh no, something went wrong!", Levels.error)
 ```
 
 Terminal:\
