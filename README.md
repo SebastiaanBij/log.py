@@ -29,6 +29,9 @@ Logger.slog("Oh no, something went wrong!", Levels.error)
 Terminal:\
 ![img.png](images/terminal_result.png)
 
+## Examples:
+[Click me!](https://github.com/SebastiaanBij/log.py/tree/main/examples)
+
 ## Documentation:
 
 ## Requirements:
