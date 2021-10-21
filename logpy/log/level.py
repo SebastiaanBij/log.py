@@ -2,16 +2,17 @@
 
 # ||Imports||
 ########################################################################################################################
-from logpy.ansi import ForegroundColor, BackgroundColor
+from logpy.ansi import ForegroundColor, BackgroundColor, Effect
 
 # ||Classes||
 ########################################################################################################################
 class Level:
-    def __init__(self, l_name: str, l_foreground_color: ForegroundColor = ForegroundColor.white,
-                 l_background_color: BackgroundColor = None):
+    def __init__(self, l_name: str, l_foreground_color: ForegroundColor | str = ForegroundColor.white,
+                 l_background_color: BackgroundColor | str = "", l_effect: Effect | str = ""):
         self.name = l_name
         self.foreground_color = l_foreground_color
         self.background_color = l_background_color
+        self.effect = l_effect
 
 class Levels:
     normal = Level("NORMAL", ForegroundColor.white)
