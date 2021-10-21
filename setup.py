@@ -11,7 +11,8 @@ with open("./README.md", "r") as readme:
 
 packages = [
     "logpy",
-    "logpy.ansi"
+    "logpy.ansi",
+    "logpy.log"
 ]
 
 # ||Setup||
