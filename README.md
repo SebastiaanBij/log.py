@@ -13,7 +13,7 @@ logger.log("Hello World!")
 logger.log("Oh no, something went wrong!", Levels.error)
 ```
 
-Terminal:
+Terminal:\
 ![img.png](images/img.png)
 
 ### - Non-instantiated:
@@ -26,7 +26,7 @@ Logger.log("Hello World!")
 Logger.log("Oh no, something went wrong!", Levels.error)
 ```
 
-Terminal:
+Terminal:\
 ![img.png](images/img.png)
 
 ## Documentation:
