@@ -5,16 +5,16 @@ A basic logging library for Python.
 ### - Instantiated:
 Code:
 ```python
-import logpy
+from logpy import Logger
 from logpy.log import Levels
 
-logger = logpy.Logger()
+logger = Logger()
 logger.log("Hello World!")
 logger.log("Oh no, something went wrong!", Levels.error)
 ```
 
 Terminal:\
-![img.png](images/img.png)
+![img.png](images/terminal_result.png)
 
 ### - Non-instantiated:
 Code:
@@ -27,7 +27,7 @@ Logger.log("Oh no, something went wrong!", Levels.error)
 ```
 
 Terminal:\
-![img.png](images/img.png)
+![img.png](images/terminal_result.png)
 
 ## Documentation:
 
