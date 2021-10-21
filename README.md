@@ -1,4 +1,5 @@
 # <b><u>log.py</u></b>
+[![Python_Shield](https://img.shields.io/badge/Python_3.10-white?style=for-the-badge&logo=python)](https://www.python.org/downloads/release/python-3100/)
 
 ## <b>📖 About:</b>
 A basic logging library for Python with the capability to:
@@ -43,4 +44,4 @@ Logger.slog("Oh no, something went wrong!", Levels.error)
 ## <b>📚 Documentation:</b>
 
 ## <b>❗ Requirements:</b>
-- Python 3.10
+- [Python 3.10](https://www.python.org/downloads/release/python-3100/)
