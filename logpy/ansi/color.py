@@ -3,6 +3,9 @@
 # ||Classes||
 ########################################################################################################################
 class ForegroundColor:
+    """
+    A collection of ANSI foreground colors in the Python format.\n
+    """
     #region Variables
     black = "\033[30m"
     red = "\033[31m"
@@ -22,6 +25,9 @@ class ForegroundColor:
     #endregion
 
 class BackgroundColor:
+    """
+    A collection of ANSI background colors in the Python format.\n
+    """
     #region Variables
     black = "\033[40m"
     red = "\033[41m"

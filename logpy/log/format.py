@@ -12,6 +12,17 @@ class Format:
     #region Constructor
     def __init__(self, f_string: str = "<$date | $time> [$level] $message", f_date: str = "%d-%m-%Y",
                  f_time: str = "%H:%M:%S"):
+        """
+        The format of a log.\n
+        :param f_string: The format string. This uses custom variables, which are identifiable by the <i>'$'</i> symbol.<br>
+        These are the current variables:<br>
+        - $date = the date of the log.<br>
+        - $time = the time of the log.<br>
+        - $level = the level of the log.<br>
+        - $message = the message of the log.
+        :param f_date:
+        :param f_time:
+        """
         self.string = f_string
         self.date = f_date
         self.time = f_time
