@@ -18,7 +18,7 @@ packages = [
 # ||Setup||
 ########################################################################################################################
 setup(
-    name = "log.py-SebastiaanBij",
+    name = "log.py",
     version = "0.0.1",
     author = "Sebastiaan Bij",
     description = "A basic logging library for Python.",
