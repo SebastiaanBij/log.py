@@ -20,8 +20,8 @@ class Format:
         - $time = the time of the log.<br>
         - $level = the level of the log.<br>
         - $message = the message of the log.
-        :param f_date:
-        :param f_time:
+        :param f_date: The format of the date. This uses the datetime variables.
+        :param f_time: The format of the time. This uses the datetime variables.
         """
         self.string = f_string
         self.date = f_date
@@ -31,6 +31,14 @@ class Format:
     #region Public Methods
     def generate_log(self, f_message: str, f_date: datetime = datetime.now(),
                      f_time: datetime = datetime.now(), f_level: Level = Levels.normal) -> str:
+        """
+        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.\n
+        :param f_message: The message of the log.
+        :param f_date: The date of the log.
+        :param f_time: The time of the log.
+        :param f_level: The level of the log.
+        :return: The log string.
+        """
         result = f"{f_level.foreground_color}{f_level.background_color}{f_level.effect}{self.string}{Effect.reset}"
         dictionary = {
             "$date": f_date.strftime(self.date),
