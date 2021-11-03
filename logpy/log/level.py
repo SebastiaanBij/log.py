@@ -7,6 +7,7 @@ from logpy.ansi import ForegroundColor, BackgroundColor, Effect
 # ||Classes||
 ########################################################################################################################
 class Level:
+    #region Constructor
     def __init__(self, l_name: str, l_foreground_color: ForegroundColor | str = ForegroundColor.white,
                  l_background_color: BackgroundColor | str = "", l_effect: Effect | str = ""):
         """
@@ -20,6 +21,12 @@ class Level:
         self.foreground_color = l_foreground_color
         self.background_color = l_background_color
         self.effect = l_effect
+    #endregion
+
+    # region Magic Methods
+    def __repr__(self) -> str:
+        return "logpy.log.level.Level"
+    # endregion
 
 class Levels:
     """
