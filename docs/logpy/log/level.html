@@ -97,19 +97,33 @@
 <span class="c1"># ||Classes||</span>
 <span class="c1">########################################################################################################################</span>
 <span class="k">class</span> <span class="nc">Level</span><span class="p">:</span>
+    <span class="c1">#region Constructor</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_foreground_color</span><span class="p">:</span> <span class="n">ForegroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ForegroundColor</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
                  <span class="n">l_background_color</span><span class="p">:</span> <span class="n">BackgroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">l_effect</span><span class="p">:</span> <span class="n">Effect</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The level of a log.\n</span>
-<span class="sd">        :param l_name: The name of the log level. This is shown in the log string.</span>
-<span class="sd">        :param l_foreground_color: The foreground color of the log level. This will be the log string foreground color.</span>
-<span class="sd">        :param l_background_color: The background color of the log level. This will be the log string background color.</span>
-<span class="sd">        :param l_effect: The effect of the log level. This will be the effect applied to the log string.</span>
+<span class="sd">        The level of the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_name : str</span>
+<span class="sd">            The name of the log level. This is shown in the log string.</span>
+<span class="sd">        l_foreground_color : ForegroundColor | str</span>
+<span class="sd">            The foreground color of the log level. This will be the log string foreground color.</span>
+<span class="sd">        l_background_color : BackgroundColor | str</span>
+<span class="sd">            The background color of the log level. This will be the log string background color.</span>
+<span class="sd">        l_effect: Effect | str</span>
+<span class="sd">            The effect of the log level. This will be the effect applied to the log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">l_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foreground_color</span> <span class="o">=</span> <span class="n">l_foreground_color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="n">l_background_color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">effect</span> <span class="o">=</span> <span class="n">l_effect</span>
+    <span class="c1">#endregion</span>
+
+    <span class="c1"># region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.log.level.Level&quot;</span>
+    <span class="c1"># endregion</span>
 
 <span class="k">class</span> <span class="nc">Levels</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -139,19 +153,33 @@
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Level</span><span class="p">:</span>
+    <span class="c1">#region Constructor</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_foreground_color</span><span class="p">:</span> <span class="n">ForegroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ForegroundColor</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
                  <span class="n">l_background_color</span><span class="p">:</span> <span class="n">BackgroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">l_effect</span><span class="p">:</span> <span class="n">Effect</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The level of a log.\n</span>
-<span class="sd">        :param l_name: The name of the log level. This is shown in the log string.</span>
-<span class="sd">        :param l_foreground_color: The foreground color of the log level. This will be the log string foreground color.</span>
-<span class="sd">        :param l_background_color: The background color of the log level. This will be the log string background color.</span>
-<span class="sd">        :param l_effect: The effect of the log level. This will be the effect applied to the log string.</span>
+<span class="sd">        The level of the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_name : str</span>
+<span class="sd">            The name of the log level. This is shown in the log string.</span>
+<span class="sd">        l_foreground_color : ForegroundColor | str</span>
+<span class="sd">            The foreground color of the log level. This will be the log string foreground color.</span>
+<span class="sd">        l_background_color : BackgroundColor | str</span>
+<span class="sd">            The background color of the log level. This will be the log string background color.</span>
+<span class="sd">        l_effect: Effect | str</span>
+<span class="sd">            The effect of the log level. This will be the effect applied to the log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">l_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foreground_color</span> <span class="o">=</span> <span class="n">l_foreground_color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="n">l_background_color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">effect</span> <span class="o">=</span> <span class="n">l_effect</span>
+    <span class="c1">#endregion</span>
+
+    <span class="c1"># region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.log.level.Level&quot;</span>
+    <span class="c1"># endregion</span>
 </pre></div>
 
         </details>
@@ -175,11 +203,18 @@
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_foreground_color</span><span class="p">:</span> <span class="n">ForegroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ForegroundColor</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
                  <span class="n">l_background_color</span><span class="p">:</span> <span class="n">BackgroundColor</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">l_effect</span><span class="p">:</span> <span class="n">Effect</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The level of a log.\n</span>
-<span class="sd">        :param l_name: The name of the log level. This is shown in the log string.</span>
-<span class="sd">        :param l_foreground_color: The foreground color of the log level. This will be the log string foreground color.</span>
-<span class="sd">        :param l_background_color: The background color of the log level. This will be the log string background color.</span>
-<span class="sd">        :param l_effect: The effect of the log level. This will be the effect applied to the log string.</span>
+<span class="sd">        The level of the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_name : str</span>
+<span class="sd">            The name of the log level. This is shown in the log string.</span>
+<span class="sd">        l_foreground_color : ForegroundColor | str</span>
+<span class="sd">            The foreground color of the log level. This will be the log string foreground color.</span>
+<span class="sd">        l_background_color : BackgroundColor | str</span>
+<span class="sd">            The background color of the log level. This will be the log string background color.</span>
+<span class="sd">        l_effect: Effect | str</span>
+<span class="sd">            The effect of the log level. This will be the effect applied to the log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">l_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foreground_color</span> <span class="o">=</span> <span class="n">l_foreground_color</span>
@@ -189,12 +224,20 @@
 
         </details>
 
-            <div class="docstring"><p>The level of a log.</p>
+            <div class="docstring"><p>The level of the log.</p>
 
-<p>:param l_name: The name of the log level. This is shown in the log string.
-:param l_foreground_color: The foreground color of the log level. This will be the log string foreground color.
-:param l_background_color: The background color of the log level. This will be the log string background color.
-:param l_effect: The effect of the log level. This will be the effect applied to the log string.</p>
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>l_name</strong> (str):
+The name of the log level. This is shown in the log string.</li>
+<li><strong>l_foreground_color</strong> (ForegroundColor | str):
+The foreground color of the log level. This will be the log string foreground color.</li>
+<li><strong>l_background_color</strong> (BackgroundColor | str):
+The background color of the log level. This will be the log string background color.</li>
+<li><strong>l_effect</strong> (Effect | str):
+The effect of the log level. This will be the effect applied to the log string.</li>
+</ul>
 </div>
 
 
@@ -244,7 +287,7 @@
                             <div id="Levels.normal" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.normal">#&nbsp;&nbsp</a>
 
-        <span class="name">normal</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">normal</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -253,7 +296,7 @@
                             <div id="Levels.notification" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.notification">#&nbsp;&nbsp</a>
 
-        <span class="name">notification</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">notification</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -262,7 +305,7 @@
                             <div id="Levels.alert" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.alert">#&nbsp;&nbsp</a>
 
-        <span class="name">alert</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">alert</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -271,7 +314,7 @@
                             <div id="Levels.warning" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.warning">#&nbsp;&nbsp</a>
 
-        <span class="name">warning</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">warning</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -280,7 +323,7 @@
                             <div id="Levels.error" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.error">#&nbsp;&nbsp</a>
 
-        <span class="name">error</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">error</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -289,7 +332,7 @@
                             <div id="Levels.success" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.success">#&nbsp;&nbsp</a>
 
-        <span class="name">success</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">success</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     
@@ -298,7 +341,7 @@
                             <div id="Levels.unknown" class="classattr">
                                             <div class="attr variable"><a class="headerlink" href="#Levels.unknown">#&nbsp;&nbsp</a>
 
-        <span class="name">unknown</span><span class="default_value"> = &lt;<a href="#Level">logpy.log.level.Level</a> object&gt;</span>
+        <span class="name">unknown</span><span class="default_value"> = <a href="#Level">logpy.log.level.Level</a></span>
     </div>
 
     

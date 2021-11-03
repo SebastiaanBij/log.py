@@ -76,31 +76,53 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&lt;$date | $time&gt; [$level] $message&quot;</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">,</span>
                  <span class="n">f_time</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The format of a log.\n</span>
-<span class="sd">        :param f_string: The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.&lt;br&gt;</span>
-<span class="sd">        These are the current variables:&lt;br&gt;</span>
-<span class="sd">        - $date = the date of the log.&lt;br&gt;</span>
-<span class="sd">        - $time = the time of the log.&lt;br&gt;</span>
-<span class="sd">        - $level = the level of the log.&lt;br&gt;</span>
-<span class="sd">        - $message = the message of the log.</span>
-<span class="sd">        :param f_date: The format of the date. This uses the datetime variables.</span>
-<span class="sd">        :param f_time: The format of the time. This uses the datetime variables.</span>
+<span class="sd">        The level of a log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_string : str</span>
+<span class="sd">            The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.</span>
+<span class="sd">            These are the current variables:</span>
+<span class="sd">                - &lt;b&gt;$date&lt;/b&gt; = the date of the log.</span>
+<span class="sd">                - &lt;b&gt;$time&lt;/b&gt; = the time of the log.</span>
+<span class="sd">                - &lt;b&gt;$level&lt;/b&gt; = the level of the log.</span>
+<span class="sd">                - &lt;b&gt;$message&lt;/b&gt; = the message of the log.</span>
+<span class="sd">        f_date : str</span>
+<span class="sd">            The format of the date. This uses the datetime variables.</span>
+<span class="sd">        f_time : str</span>
+<span class="sd">            The format of the time. This uses the datetime variables.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">f_string</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">f_date</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">f_time</span>
     <span class="c1">#endregion</span>
 
+    <span class="c1">#region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.log.format.Format&quot;</span>
+    <span class="c1">#endregion</span>
+
     <span class="c1">#region Public Methods</span>
     <span class="k">def</span> <span class="nf">generate_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
                      <span class="n">f_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">f_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.\n</span>
-<span class="sd">        :param f_message: The message of the log.</span>
-<span class="sd">        :param f_date: The date of the log.</span>
-<span class="sd">        :param f_time: The time of the log.</span>
-<span class="sd">        :param f_level: The level of the log.</span>
-<span class="sd">        :return: The log string.</span>
+<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        f_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        f_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        f_level : Level</span>
+<span class="sd">            The level of the log.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">f_level</span><span class="o">.</span><span class="n">foreground_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">background_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">effect</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="si">}{</span><span class="n">Effect</span><span class="o">.</span><span class="n">reset</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span>
@@ -136,31 +158,53 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&lt;$date | $time&gt; [$level] $message&quot;</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">,</span>
                  <span class="n">f_time</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The format of a log.\n</span>
-<span class="sd">        :param f_string: The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.&lt;br&gt;</span>
-<span class="sd">        These are the current variables:&lt;br&gt;</span>
-<span class="sd">        - $date = the date of the log.&lt;br&gt;</span>
-<span class="sd">        - $time = the time of the log.&lt;br&gt;</span>
-<span class="sd">        - $level = the level of the log.&lt;br&gt;</span>
-<span class="sd">        - $message = the message of the log.</span>
-<span class="sd">        :param f_date: The format of the date. This uses the datetime variables.</span>
-<span class="sd">        :param f_time: The format of the time. This uses the datetime variables.</span>
+<span class="sd">        The level of a log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_string : str</span>
+<span class="sd">            The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.</span>
+<span class="sd">            These are the current variables:</span>
+<span class="sd">                - &lt;b&gt;$date&lt;/b&gt; = the date of the log.</span>
+<span class="sd">                - &lt;b&gt;$time&lt;/b&gt; = the time of the log.</span>
+<span class="sd">                - &lt;b&gt;$level&lt;/b&gt; = the level of the log.</span>
+<span class="sd">                - &lt;b&gt;$message&lt;/b&gt; = the message of the log.</span>
+<span class="sd">        f_date : str</span>
+<span class="sd">            The format of the date. This uses the datetime variables.</span>
+<span class="sd">        f_time : str</span>
+<span class="sd">            The format of the time. This uses the datetime variables.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">f_string</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">f_date</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">f_time</span>
     <span class="c1">#endregion</span>
 
+    <span class="c1">#region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.log.format.Format&quot;</span>
+    <span class="c1">#endregion</span>
+
     <span class="c1">#region Public Methods</span>
     <span class="k">def</span> <span class="nf">generate_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
                      <span class="n">f_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">f_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.\n</span>
-<span class="sd">        :param f_message: The message of the log.</span>
-<span class="sd">        :param f_date: The date of the log.</span>
-<span class="sd">        :param f_time: The time of the log.</span>
-<span class="sd">        :param f_level: The level of the log.</span>
-<span class="sd">        :return: The log string.</span>
+<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        f_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        f_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        f_level : Level</span>
+<span class="sd">            The level of the log.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">f_level</span><span class="o">.</span><span class="n">foreground_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">background_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">effect</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="si">}{</span><span class="n">Effect</span><span class="o">.</span><span class="n">reset</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span>
@@ -197,15 +241,21 @@
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&lt;$date | $time&gt; [$level] $message&quot;</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y&quot;</span><span class="p">,</span>
                  <span class="n">f_time</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The format of a log.\n</span>
-<span class="sd">        :param f_string: The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.&lt;br&gt;</span>
-<span class="sd">        These are the current variables:&lt;br&gt;</span>
-<span class="sd">        - $date = the date of the log.&lt;br&gt;</span>
-<span class="sd">        - $time = the time of the log.&lt;br&gt;</span>
-<span class="sd">        - $level = the level of the log.&lt;br&gt;</span>
-<span class="sd">        - $message = the message of the log.</span>
-<span class="sd">        :param f_date: The format of the date. This uses the datetime variables.</span>
-<span class="sd">        :param f_time: The format of the time. This uses the datetime variables.</span>
+<span class="sd">        The level of a log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_string : str</span>
+<span class="sd">            The format string. This uses custom variables, which are identifiable by the &lt;i&gt;&#39;$&#39;&lt;/i&gt; symbol.</span>
+<span class="sd">            These are the current variables:</span>
+<span class="sd">                - &lt;b&gt;$date&lt;/b&gt; = the date of the log.</span>
+<span class="sd">                - &lt;b&gt;$time&lt;/b&gt; = the time of the log.</span>
+<span class="sd">                - &lt;b&gt;$level&lt;/b&gt; = the level of the log.</span>
+<span class="sd">                - &lt;b&gt;$message&lt;/b&gt; = the message of the log.</span>
+<span class="sd">        f_date : str</span>
+<span class="sd">            The format of the date. This uses the datetime variables.</span>
+<span class="sd">        f_time : str</span>
+<span class="sd">            The format of the time. This uses the datetime variables.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">f_string</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">f_date</span>
@@ -214,18 +264,24 @@
 
         </details>
 
-            <div class="docstring"><p>The format of a log.</p>
+            <div class="docstring"><p>The level of a log.</p>
 
-<p>:param f_string: The format string. This uses custom variables, which are identifiable by the <i>'$'</i> symbol.<br>
-These are the current variables:<br></p>
+<h6 id="parameters">Parameters</h6>
 
 <ul>
-<li>$date = the date of the log.<br></li>
-<li>$time = the time of the log.<br></li>
-<li>$level = the level of the log.<br></li>
-<li>$message = the message of the log.
-:param f_date: The format of the date. This uses the datetime variables.
-:param f_time: The format of the time. This uses the datetime variables.</li>
+<li><strong>f_string</strong> (str):
+The format string. This uses custom variables, which are identifiable by the <i>'$'</i> symbol.
+These are the current variables:
+<ul>
+<li><b>$date</b> = the date of the log.</li>
+<li><b>$time</b> = the time of the log.</li>
+<li><b>$level</b> = the level of the log.</li>
+<li><b>$message</b> = the message of the log.</li>
+</ul></li>
+<li><strong>f_date</strong> (str):
+The format of the date. This uses the datetime variables.</li>
+<li><strong>f_time</strong> (str):
+The format of the time. This uses the datetime variables.</li>
 </ul>
 </div>
 
@@ -239,9 +295,9 @@ These are the current variables:<br></p>
             <span class="name">generate_log</span><span class="signature">(
     self,
     f_message: str,
-    f_date: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227),
-    f_time: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227),
-    f_level: <a href="level.html#Level">logpy.log.level.Level</a> = &lt;<a href="level.html#Level">logpy.log.level.Level</a> object&gt;
+    f_date: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131),
+    f_time: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131),
+    f_level: <a href="level.html#Level">logpy.log.level.Level</a> = <a href="level.html#Level">logpy.log.level.Level</a>
 ) -&gt; str</span>:
     </div>
 
@@ -250,12 +306,23 @@ These are the current variables:<br></p>
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">generate_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">f_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
                      <span class="n">f_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">f_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.\n</span>
-<span class="sd">        :param f_message: The message of the log.</span>
-<span class="sd">        :param f_date: The date of the log.</span>
-<span class="sd">        :param f_time: The time of the log.</span>
-<span class="sd">        :param f_level: The level of the log.</span>
-<span class="sd">        :return: The log string.</span>
+<span class="sd">        Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        f_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        f_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        f_level : Level</span>
+<span class="sd">            The level of the log.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The log string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">f_level</span><span class="o">.</span><span class="n">foreground_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">background_color</span><span class="si">}{</span><span class="n">f_level</span><span class="o">.</span><span class="n">effect</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="si">}{</span><span class="n">Effect</span><span class="o">.</span><span class="n">reset</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span>
@@ -275,11 +342,24 @@ These are the current variables:<br></p>
 
             <div class="docstring"><p>Generate the log string, which in turn can be used to show in the terminal and/or be saved to a file.</p>
 
-<p>:param f_message: The message of the log.
-:param f_date: The date of the log.
-:param f_time: The time of the log.
-:param f_level: The level of the log.
-:return: The log string.</p>
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>f_message</strong> (str):
+The message of the log.</li>
+<li><strong>f_date</strong> (datetime):
+The date of the log.</li>
+<li><strong>f_time</strong> (datetime):
+The time of the log.</li>
+<li><strong>f_level</strong> (Level):
+The level of the log.</li>
+</ul>
+
+<h6 id="returns">Returns</h6>
+
+<ul>
+<li><strong>str</strong>: The log string.</li>
+</ul>
 </div>
 
 

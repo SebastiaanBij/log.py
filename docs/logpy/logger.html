@@ -79,12 +79,20 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">(),</span> <span class="n">l_echo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">l_save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                  <span class="n">l_filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;./logs&quot;</span><span class="p">,</span> <span class="n">l_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.\n</span>
-<span class="sd">        :param l_format: The format of the log message, date and time.</span>
-<span class="sd">        :param l_echo: Whether to echo the log to the terminal.</span>
-<span class="sd">        :param l_save: Whether to save the logs to a file.</span>
-<span class="sd">        :param l_filepath: The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
-<span class="sd">        :param l_file_extension: The log file extension.</span>
+<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log message, date and time.</span>
+<span class="sd">        l_echo : bool</span>
+<span class="sd">            Whether to echo the log to the terminal.</span>
+<span class="sd">        l_save : bool</span>
+<span class="sd">            Whether to save the logs to a file.</span>
+<span class="sd">        l_filepath : str</span>
+<span class="sd">            The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
+<span class="sd">        l_file_extension : str</span>
+<span class="sd">            The log file extension.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">l_format</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">echo</span> <span class="o">=</span> <span class="n">l_echo</span>
@@ -93,15 +101,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">file_extension</span> <span class="o">=</span> <span class="n">l_file_extension</span>
     <span class="c1">#endregion</span>
 
+    <span class="c1"># region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.logger.Logger&quot;</span>
+    <span class="c1"># endregion</span>
+
     <span class="c1">#region Public Methods</span>
     <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
             <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
+<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -125,12 +145,20 @@
     <span class="k">def</span> <span class="nf">slog</span><span class="p">(</span><span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
              <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
-<span class="sd">        :param l_format: The format of the log.</span>
+<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
     <span class="c1">#endregion</span>
@@ -155,12 +183,20 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">(),</span> <span class="n">l_echo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">l_save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                  <span class="n">l_filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;./logs&quot;</span><span class="p">,</span> <span class="n">l_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.\n</span>
-<span class="sd">        :param l_format: The format of the log message, date and time.</span>
-<span class="sd">        :param l_echo: Whether to echo the log to the terminal.</span>
-<span class="sd">        :param l_save: Whether to save the logs to a file.</span>
-<span class="sd">        :param l_filepath: The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
-<span class="sd">        :param l_file_extension: The log file extension.</span>
+<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log message, date and time.</span>
+<span class="sd">        l_echo : bool</span>
+<span class="sd">            Whether to echo the log to the terminal.</span>
+<span class="sd">        l_save : bool</span>
+<span class="sd">            Whether to save the logs to a file.</span>
+<span class="sd">        l_filepath : str</span>
+<span class="sd">            The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
+<span class="sd">        l_file_extension : str</span>
+<span class="sd">            The log file extension.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">l_format</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">echo</span> <span class="o">=</span> <span class="n">l_echo</span>
@@ -169,15 +205,27 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">file_extension</span> <span class="o">=</span> <span class="n">l_file_extension</span>
     <span class="c1">#endregion</span>
 
+    <span class="c1"># region Magic Methods</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;logpy.logger.Logger&quot;</span>
+    <span class="c1"># endregion</span>
+
     <span class="c1">#region Public Methods</span>
     <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
             <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
+<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -201,12 +249,20 @@
     <span class="k">def</span> <span class="nf">slog</span><span class="p">(</span><span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
              <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
-<span class="sd">        :param l_format: The format of the log.</span>
+<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
     <span class="c1">#endregion</span>
@@ -221,7 +277,7 @@
 
         
             <span class="name">Logger</span><span class="signature">(
-    l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = &lt;<a href="log/format.html#Format">logpy.log.format.Format</a> object&gt;,
+    l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = <a href="log/format.html#Format">logpy.log.format.Format</a>,
     l_echo: bool = True,
     l_save: bool = False,
     l_filepath: str = &#39;./logs&#39;,
@@ -234,12 +290,20 @@
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">(),</span> <span class="n">l_echo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">l_save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                  <span class="n">l_filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;./logs&quot;</span><span class="p">,</span> <span class="n">l_file_extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.\n</span>
-<span class="sd">        :param l_format: The format of the log message, date and time.</span>
-<span class="sd">        :param l_echo: Whether to echo the log to the terminal.</span>
-<span class="sd">        :param l_save: Whether to save the logs to a file.</span>
-<span class="sd">        :param l_filepath: The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
-<span class="sd">        :param l_file_extension: The log file extension.</span>
+<span class="sd">        A logger object which can be used in instantiated and/or non-instantiated use-cases.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log message, date and time.</span>
+<span class="sd">        l_echo : bool</span>
+<span class="sd">            Whether to echo the log to the terminal.</span>
+<span class="sd">        l_save : bool</span>
+<span class="sd">            Whether to save the logs to a file.</span>
+<span class="sd">        l_filepath : str</span>
+<span class="sd">            The filepath to save the log files to if the &lt;i&gt;&#39;l_save&#39;&lt;/i&gt; property is set to True.</span>
+<span class="sd">        l_file_extension : str</span>
+<span class="sd">            The log file extension.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="n">l_format</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">echo</span> <span class="o">=</span> <span class="n">l_echo</span>
@@ -252,11 +316,20 @@
 
             <div class="docstring"><p>A logger object which can be used in instantiated and/or non-instantiated use-cases.</p>
 
-<p>:param l_format: The format of the log message, date and time.
-:param l_echo: Whether to echo the log to the terminal.
-:param l_save: Whether to save the logs to a file.
-:param l_filepath: The filepath to save the log files to if the <i>'l_save'</i> property is set to True.
-:param l_file_extension: The log file extension.</p>
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>l_format</strong> (Format):
+The format of the log message, date and time.</li>
+<li><strong>l_echo</strong> (bool):
+Whether to echo the log to the terminal.</li>
+<li><strong>l_save</strong> (bool):
+Whether to save the logs to a file.</li>
+<li><strong>l_filepath</strong> (str):
+The filepath to save the log files to if the <i>'l_save'</i> property is set to True.</li>
+<li><strong>l_file_extension</strong> (str):
+The log file extension.</li>
+</ul>
 </div>
 
 
@@ -269,9 +342,9 @@
             <span class="name">log</span><span class="signature">(
     self,
     l_message: str,
-    l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = &lt;<a href="log/level.html#Level">logpy.log.level.Level</a> object&gt;,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227)
+    l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131)
 )</span>:
     </div>
 
@@ -280,11 +353,18 @@
             <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
             <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
+<span class="sd">        Log an event and depending on your logger object properties save and/or echo the log.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -309,10 +389,18 @@
 
             <div class="docstring"><p>Log an event and depending on your logger object properties save and/or echo the log.</p>
 
-<p>:param l_message: The message of the log.
-:param l_level: The level of the log.
-:param l_date: The date of the log.
-:param l_time: The time of the log.</p>
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>l_message</strong> (str):
+The message of the log.</li>
+<li><strong>l_level</strong> (Level):
+The level of the log.</li>
+<li><strong>l_date</strong> (datetime):
+The date of the log.</li>
+<li><strong>l_time</strong> (datetime):
+The time of the log</li>
+</ul>
 </div>
 
 
@@ -325,10 +413,10 @@
             <span class="def">def</span>
             <span class="name">slog</span><span class="signature">(
     l_message: str,
-    l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = &lt;<a href="log/level.html#Level">logpy.log.level.Level</a> object&gt;,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 18, 47, 56, 601227),
-    l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = &lt;<a href="log/format.html#Format">logpy.log.format.Format</a> object&gt;
+    l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 13, 22, 734131),
+    l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = <a href="log/format.html#Format">logpy.log.format.Format</a>
 )</span>:
     </div>
 
@@ -338,12 +426,20 @@
     <span class="k">def</span> <span class="nf">slog</span><span class="p">(</span><span class="n">l_message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">l_level</span><span class="p">:</span> <span class="n">Level</span> <span class="o">=</span> <span class="n">Levels</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">l_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
              <span class="n">l_time</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">l_format</span><span class="p">:</span> <span class="n">Format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)\n</span>
-<span class="sd">        :param l_message: The message of the log.</span>
-<span class="sd">        :param l_level: The level of the log.</span>
-<span class="sd">        :param l_date: The date of the log.</span>
-<span class="sd">        :param l_time: The time of the log.</span>
-<span class="sd">        :param l_format: The format of the log.</span>
+<span class="sd">        Log an event and echo it to the terminal. (This method does not allow saving to a file.)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l_message : str</span>
+<span class="sd">            The message of the log.</span>
+<span class="sd">        l_level : Level</span>
+<span class="sd">            The level of the log.</span>
+<span class="sd">        l_date : datetime</span>
+<span class="sd">            The date of the log.</span>
+<span class="sd">        l_time : datetime</span>
+<span class="sd">            The time of the log.</span>
+<span class="sd">        l_format : Format</span>
+<span class="sd">            The format of the log.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
 </pre></div>
@@ -352,11 +448,20 @@
 
             <div class="docstring"><p>Log an event and echo it to the terminal. (This method does not allow saving to a file.)</p>
 
-<p>:param l_message: The message of the log.
-:param l_level: The level of the log.
-:param l_date: The date of the log.
-:param l_time: The time of the log.
-:param l_format: The format of the log.</p>
+<h6 id="parameters">Parameters</h6>
+
+<ul>
+<li><strong>l_message</strong> (str):
+The message of the log.</li>
+<li><strong>l_level</strong> (Level):
+The level of the log.</li>
+<li><strong>l_date</strong> (datetime):
+The date of the log.</li>
+<li><strong>l_time</strong> (datetime):
+The time of the log.</li>
+<li><strong>l_format</strong> (Format):
+The format of the log.</li>
+</ul>
 </div>
 
 
