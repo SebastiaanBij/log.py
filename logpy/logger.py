@@ -27,6 +27,11 @@ class Logger:
         self.file_extension = l_file_extension
     #endregion
 
+    # region Magic Methods
+    def __repr__(self) -> str:
+        return "logpy.logger.Logger"
+    # endregion
+
     #region Public Methods
     def log(self, l_message: str, l_level: Level = Levels.normal, l_date: datetime = datetime.now(),
             l_time: datetime = datetime.now()):
