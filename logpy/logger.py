@@ -13,12 +13,20 @@ class Logger:
     def __init__(self, l_format: Format = Format(), l_echo: bool = True, l_save: bool = False,
                  l_filepath: str = "./logs", l_file_extension: str = "log"):
         """
-        A logger object which can be used in instantiated and/or non-instantiated use-cases.\n
-        :param l_format: The format of the log message, date and time.
-        :param l_echo: Whether to echo the log to the terminal.
-        :param l_save: Whether to save the logs to a file.
-        :param l_filepath: The filepath to save the log files to if the <i>'l_save'</i> property is set to True.
-        :param l_file_extension: The log file extension.
+        A logger object which can be used in instantiated and/or non-instantiated use-cases.
+
+        Parameters
+        ----------
+        l_format : Format
+            The format of the log message, date and time.
+        l_echo : bool
+            Whether to echo the log to the terminal.
+        l_save : bool
+            Whether to save the logs to a file.
+        l_filepath : str
+            The filepath to save the log files to if the <i>'l_save'</i> property is set to True.
+        l_file_extension : str
+            The log file extension.
         """
         self.format = l_format
         self.echo = l_echo
@@ -36,11 +44,18 @@ class Logger:
     def log(self, l_message: str, l_level: Level = Levels.normal, l_date: datetime = datetime.now(),
             l_time: datetime = datetime.now()):
         """
-        Log an event and depending on your logger object properties save and/or echo the log.\n
-        :param l_message: The message of the log.
-        :param l_level: The level of the log.
-        :param l_date: The date of the log.
-        :param l_time: The time of the log.
+        Log an event and depending on your logger object properties save and/or echo the log.
+
+        Parameters
+        ----------
+        l_message : str
+            The message of the log.
+        l_level : Level
+            The level of the log.
+        l_date : datetime
+            The date of the log.
+        l_time : datetime
+            The time of the log
         """
         log = self.format.generate_log(l_message, l_date, l_time, l_level)
 
@@ -64,12 +79,20 @@ class Logger:
     def slog(l_message: str, l_level: Level = Levels.normal, l_date: datetime = datetime.now(),
              l_time: datetime = datetime.now(), l_format: Format = Format()):
         """
-        Log an event and echo it to the terminal. (This method does not allow saving to a file.)\n
-        :param l_message: The message of the log.
-        :param l_level: The level of the log.
-        :param l_date: The date of the log.
-        :param l_time: The time of the log.
-        :param l_format: The format of the log.
+        Log an event and echo it to the terminal. (This method does not allow saving to a file.)
+
+        Parameters
+        ----------
+        l_message : str
+            The message of the log.
+        l_level : Level
+            The level of the log.
+        l_date : datetime
+            The date of the log.
+        l_time : datetime
+            The time of the log.
+        l_format : Format
+            The format of the log.
         """
         print(l_format.generate_log(l_message, l_date, l_time, l_level))
     #endregion
