@@ -28,6 +28,11 @@ class Format:
         self.time = f_time
     #endregion
 
+    #region Magic Methods
+    def __repr__(self) -> str:
+        return "logpy.log.format.Format"
+    #endregion
+
     #region Public Methods
     def generate_log(self, f_message: str, f_date: datetime = datetime.now(),
                      f_time: datetime = datetime.now(), f_level: Level = Levels.normal) -> str:
