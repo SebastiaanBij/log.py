@@ -130,6 +130,10 @@ class Logger:
         l_format : Format
             The format of the log.
 
+        Warnings
+        --------
+        This method does not allow saving to a file. For that you will need to instantiate the logger object and use the log method.
+
         Examples
         --------
         Basic logging:
