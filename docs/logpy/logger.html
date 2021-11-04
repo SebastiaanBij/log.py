@@ -122,6 +122,42 @@
 <span class="sd">            The date of the log.</span>
 <span class="sd">        l_time : datetime</span>
 <span class="sd">            The time of the log</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger(custom_format)</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -159,6 +195,39 @@
 <span class="sd">            The time of the log.</span>
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, l_format = custom_format)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
     <span class="c1">#endregion</span>
@@ -226,6 +295,42 @@
 <span class="sd">            The date of the log.</span>
 <span class="sd">        l_time : datetime</span>
 <span class="sd">            The time of the log</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger(custom_format)</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -263,6 +368,39 @@
 <span class="sd">            The time of the log.</span>
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, l_format = custom_format)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
     <span class="c1">#endregion</span>
@@ -343,8 +481,8 @@ The log file extension.</li>
     self,
     l_message: str,
     l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 17, 7, 935726),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 17, 7, 935726)
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959)
 )</span>:
     </div>
 
@@ -365,6 +503,42 @@ The log file extension.</li>
 <span class="sd">            The date of the log.</span>
 <span class="sd">        l_time : datetime</span>
 <span class="sd">            The time of the log</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger(custom_format)</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; logger = Logger()</span>
+<span class="sd">        &gt;&gt;&gt; logger.log(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">)</span>
 
@@ -401,6 +575,48 @@ The date of the log.</li>
 <li><strong>l_time</strong> (datetime):
 The time of the log</li>
 </ul>
+
+<h6 id="examples">Examples</h6>
+
+<p>Basic logging:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Logging with a custom format:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="log.html">logpy.log</a></span> <span class="kn">import</span> <span class="n">Format</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;$date - $time | ($level) $message&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;%H;%M;%S&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="n">custom_format</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Logging with a custom level:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="log.html">logpy.log</a></span> <span class="kn">import</span> <span class="n">Level</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="ansi.html">logpy.ansi</a></span> <span class="kn">import</span> <span class="n">ForegroundColor</span><span class="p">,</span> <span class="n">BackgroundColor</span><span class="p">,</span> <span class="n">Effect</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_level</span> <span class="o">=</span> <span class="n">Level</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;LEVEL NAME&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">ForegroundColor</span><span class="o">.</span><span class="n">red</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">BackgroundColor</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">Effect</span><span class="o">.</span><span class="n">reverse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">,</span> <span class="n">custom_level</span><span class="p">)</span>
+</code></pre></div>
 </div>
 
 
@@ -414,8 +630,8 @@ The time of the log</li>
             <span class="name">slog</span><span class="signature">(
     l_message: str,
     l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 17, 7, 935726),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 3, 21, 17, 7, 935726),
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
     l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = <a href="log/format.html#Format">logpy.log.format.Format</a>
 )</span>:
     </div>
@@ -440,6 +656,39 @@ The time of the log</li>
 <span class="sd">            The time of the log.</span>
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Basic logging:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;)</span>
+
+<span class="sd">        Logging with a custom format:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Format</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_format = Format(</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;$date - $time | ($level) $message&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%Y-%m-%d&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    &quot;%H;%M;%S&quot;</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, l_format = custom_format)</span>
+
+<span class="sd">        Logging with a custom level:</span>
+<span class="sd">        &gt;&gt;&gt; from logpy import Logger</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.log import Level</span>
+<span class="sd">        &gt;&gt;&gt; from logpy.ansi import ForegroundColor, BackgroundColor, Effect</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; custom_level = Level(</span>
+<span class="sd">        &gt;&gt;&gt;        &quot;LEVEL NAME&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;        ForegroundColor.red,</span>
+<span class="sd">        &gt;&gt;&gt;        BackgroundColor.white,</span>
+<span class="sd">        &gt;&gt;&gt;        Effect.reverse</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; Logger.slog(&quot;Example log message.&quot;, custom_level)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">l_format</span><span class="o">.</span><span class="n">generate_log</span><span class="p">(</span><span class="n">l_message</span><span class="p">,</span> <span class="n">l_date</span><span class="p">,</span> <span class="n">l_time</span><span class="p">,</span> <span class="n">l_level</span><span class="p">))</span>
 </pre></div>
@@ -462,6 +711,45 @@ The time of the log.</li>
 <li><strong>l_format</strong> (Format):
 The format of the log.</li>
 </ul>
+
+<h6 id="examples">Examples</h6>
+
+<p>Basic logging:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Logger</span><span class="o">.</span><span class="n">slog</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Logging with a custom format:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="log.html">logpy.log</a></span> <span class="kn">import</span> <span class="n">Format</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;$date - $time | ($level) $message&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="s2">&quot;%H;%M;%S&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Logger</span><span class="o">.</span><span class="n">slog</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">,</span> <span class="n">l_format</span> <span class="o">=</span> <span class="n">custom_format</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Logging with a custom level:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">logpy</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="log.html">logpy.log</a></span> <span class="kn">import</span> <span class="n">Level</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn"><a href="ansi.html">logpy.ansi</a></span> <span class="kn">import</span> <span class="n">ForegroundColor</span><span class="p">,</span> <span class="n">BackgroundColor</span><span class="p">,</span> <span class="n">Effect</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_level</span> <span class="o">=</span> <span class="n">Level</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="s2">&quot;LEVEL NAME&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">ForegroundColor</span><span class="o">.</span><span class="n">red</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">BackgroundColor</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">Effect</span><span class="o">.</span><span class="n">reverse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Logger</span><span class="o">.</span><span class="n">slog</span><span class="p">(</span><span class="s2">&quot;Example log message.&quot;</span><span class="p">,</span> <span class="n">custom_level</span><span class="p">)</span>
+</code></pre></div>
 </div>
 
 
