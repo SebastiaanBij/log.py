@@ -196,6 +196,10 @@
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
 
+<span class="sd">        Warnings</span>
+<span class="sd">        --------</span>
+<span class="sd">        This method does not allow saving to a file. For that you will need to instantiate the logger object and use the log method.</span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        Basic logging:</span>
@@ -369,6 +373,10 @@
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
 
+<span class="sd">        Warnings</span>
+<span class="sd">        --------</span>
+<span class="sd">        This method does not allow saving to a file. For that you will need to instantiate the logger object and use the log method.</span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        Basic logging:</span>
@@ -481,8 +489,8 @@ The log file extension.</li>
     self,
     l_message: str,
     l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959)
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 11, 15, 42, 240725),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 11, 15, 42, 240725)
 )</span>:
     </div>
 
@@ -630,8 +638,8 @@ The time of the log</li>
             <span class="name">slog</span><span class="signature">(
     l_message: str,
     l_level: <a href="log/level.html#Level">logpy.log.level.Level</a> = <a href="log/level.html#Level">logpy.log.level.Level</a>,
-    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
-    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 9, 31, 43, 229959),
+    l_date: datetime.datetime = datetime.datetime(2021, 11, 4, 11, 15, 42, 240725),
+    l_time: datetime.datetime = datetime.datetime(2021, 11, 4, 11, 15, 42, 240725),
     l_format: <a href="log/format.html#Format">logpy.log.format.Format</a> = <a href="log/format.html#Format">logpy.log.format.Format</a>
 )</span>:
     </div>
@@ -656,6 +664,10 @@ The time of the log</li>
 <span class="sd">            The time of the log.</span>
 <span class="sd">        l_format : Format</span>
 <span class="sd">            The format of the log.</span>
+
+<span class="sd">        Warnings</span>
+<span class="sd">        --------</span>
+<span class="sd">        This method does not allow saving to a file. For that you will need to instantiate the logger object and use the log method.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -711,6 +723,10 @@ The time of the log.</li>
 <li><strong>l_format</strong> (Format):
 The format of the log.</li>
 </ul>
+
+<h6 id="warnings">Warnings</h6>
+
+<p>This method does not allow saving to a file. For that you will need to instantiate the logger object and use the log method.</p>
 
 <h6 id="examples">Examples</h6>
 
