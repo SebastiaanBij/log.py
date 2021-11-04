@@ -56,6 +56,42 @@ class Logger:
             The date of the log.
         l_time : datetime
             The time of the log
+
+        Examples
+        --------
+        Basic logging:
+        >>> from logpy import Logger
+        >>>
+        >>> logger = Logger()
+        >>> logger.log("Example log message.")
+
+        Logging with a custom format:
+        >>> from logpy import Logger
+        >>> from logpy.log import Format
+        >>>
+        >>> custom_format = Format(
+        >>>    "$date - $time | ($level) $message",
+        >>>    "%Y-%m-%d",
+        >>>    "%H;%M;%S"
+        >>> )
+        >>>
+        >>> logger = Logger(custom_format)
+        >>> logger.log("Example log message.")
+
+        Logging with a custom level:
+        >>> from logpy import Logger
+        >>> from logpy.log import Level
+        >>> from logpy.ansi import ForegroundColor, BackgroundColor, Effect
+        >>>
+        >>> custom_level = Level(
+        >>>        "LEVEL NAME",
+        >>>        ForegroundColor.red,
+        >>>        BackgroundColor.white,
+        >>>        Effect.reverse
+        >>> )
+        >>>
+        >>> logger = Logger()
+        >>> logger.log("Example log message.", custom_level)
         """
         log = self.format.generate_log(l_message, l_date, l_time, l_level)
 
@@ -93,6 +129,39 @@ class Logger:
             The time of the log.
         l_format : Format
             The format of the log.
+
+        Examples
+        --------
+        Basic logging:
+        >>> from logpy import Logger
+        >>>
+        >>> Logger.slog("Example log message.")
+
+        Logging with a custom format:
+        >>> from logpy import Logger
+        >>> from logpy.log import Format
+        >>>
+        >>> custom_format = Format(
+        >>>    "$date - $time | ($level) $message",
+        >>>    "%Y-%m-%d",
+        >>>    "%H;%M;%S"
+        >>> )
+        >>>
+        >>> Logger.slog("Example log message.", l_format = custom_format)
+
+        Logging with a custom level:
+        >>> from logpy import Logger
+        >>> from logpy.log import Level
+        >>> from logpy.ansi import ForegroundColor, BackgroundColor, Effect
+        >>>
+        >>> custom_level = Level(
+        >>>        "LEVEL NAME",
+        >>>        ForegroundColor.red,
+        >>>        BackgroundColor.white,
+        >>>        Effect.reverse
+        >>> )
+        >>>
+        >>> Logger.slog("Example log message.", custom_level)
         """
         print(l_format.generate_log(l_message, l_date, l_time, l_level))
     #endregion
