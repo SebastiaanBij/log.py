@@ -42,7 +42,7 @@ Logger.slog("Oh no, something went wrong!", Levels.error)
 [Click me!](https://github.com/SebastiaanBij/log.py/tree/main/examples)
 
 ## <b>📚 Documentation:</b>
-[Click me!](https://sebastiaanbij.github.io/log.py/)
+[Click me!](https://sebastiaanbij.github.io/log.py/logpy.html)
 
 ## <b>❗ Requirements:</b>
 - [Python 3.10](https://www.python.org/downloads/release/python-3100/)
