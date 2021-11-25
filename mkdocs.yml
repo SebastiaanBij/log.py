@@ -1,0 +1,39 @@
+site_name: log.py Documentation
+site_url: https://sebastiaanbij.github.io/log.py
+repo_url: https://github.com/SebastiaanBij/log.py
+edit_uri: tree/main/docs
+site_author: Sebastiaan Bij
+
+nav:
+  - Home: "index.md"
+  - Getting started: "getting_started.md"
+  - Examples: "examples.md"
+  - Contents:
+      - logpy:
+        - logger: "contents/logpy/logger.md"
+        - log:
+            - format: "contents/logpy/log/format.md"
+            - level: "contents/logpy/log/level.md"
+        - ansi:
+            - color: "contents/logpy/ansi/color.md"
+            - effect: "contents/logpy/ansi/effect.md"
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  features:
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
