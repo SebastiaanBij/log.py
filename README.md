@@ -1,5 +1,7 @@
 # <b><u>log.py</u></b>
-[![Python_Shield](https://img.shields.io/badge/Python_3.10-white?style=for-the-badge&logo=python)](https://www.python.org/downloads/release/python-3100/)
+[![Python Version Shield](https://img.shields.io/badge/Python%20Version-3.10-white?color=white&label=PyPi%20Downloads&logo=python&logoColor=white&style=for-the-badge)](https://www.python.org/downloads/release/python-3100/)
+[![PyPi Downloads Shield](https://img.shields.io/pypi/dm/log.py?color=blue&label=PyPi%20Downloads&logo=pypi&logoColor=blue&style=for-the-badge)](https://pypi.org/project/log.py/)
+[![License Shield](https://img.shields.io/github/license/sebastiaanbij/log.py?style=for-the-badge)](https://github.com/SebastiaanBij/log.py/blob/main/LICENSE)
 
 ## <b>📖 About:</b>
 A basic logging library for Python with the capability to:
